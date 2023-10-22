@@ -2,7 +2,7 @@ import Home from './components/Home';
 
 function App() {
   return (
-    <div>
+    <div className="overflow-hidden">
       <Home />
     </div>
   );

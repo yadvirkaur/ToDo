@@ -8,8 +8,10 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-.main {
-  width: clamp(550px, 100%, 850px);
+@media (min-width: 600px) {
+  .main {
+    width: clamp(550px, 100%, 850px);
+  }
 }
 
 .body *::-webkit-scrollbar-track {

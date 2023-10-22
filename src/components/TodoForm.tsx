@@ -24,7 +24,7 @@ const TodoForm = () => {
 
   return (
     <form className="form" onSubmit={onFormSubmit}>
-      <div className="flex items-center gap-4 text-sm border  shadow rounded-md p-4  w-[100%]">
+      <div className=" flex items-center gap-4 text-sm border  shadow rounded-md p-4  w-[100%]">
         <div className="text-blue text-lg">
           <AiOutlinePlus />
         </div>
