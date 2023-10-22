@@ -9,7 +9,7 @@ const TodoForm = () => {
     e.preventDefault();
     if (task) {
       axios
-        .post('http://localhost:8000/todos', { task: task })
+        .post('https://mern-todo-app-bdsl.onrender.com/todos', { task: task })
         .then((result) => {
           console.log(result);
           setTask(''); // Clear the input field on success

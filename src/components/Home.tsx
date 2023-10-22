@@ -35,7 +35,7 @@ const Home = () => {
   // Fetch the list of tasks from the server when the component mounts
   useEffect(() => {
     axios
-      .get('http://localhost:8000/todos')
+      .get('https://mern-todo-app-bdsl.onrender.com/todos')
       .then((result) => setTodos(result.data))
       .catch((error) => console.log(error));
   }, [todos]); // Re-fetch when the 'todos' state changes
@@ -49,7 +49,10 @@ const Home = () => {
 
         // Send an HTTP PUT request to update the task on the server
         axios
-          .put(`http://localhost:8000/todos/${taskId}`, updatedTodo)
+          .put(
+            `https://mern-todo-app-bdsl.onrender.com/todos/${taskId}`,
+            updatedTodo
+          )
           .then((result) => console.log(result))
           .catch((error) => console.log(error));
 
@@ -88,7 +91,7 @@ const Home = () => {
   const handleTaskDelete = (taskId: string) => {
     // Send an HTTP DELETE request to remove the task from the server
     axios
-      .delete(`http://localhost:8000/todos/${taskId}`)
+      .delete(`https://mern-todo-app-bdsl.onrender.com/todos/${taskId}`)
       .then((result) => {
         const updatedTodos = todos.filter((todo) => todo._id !== taskId);
         setTodos(updatedTodos); // Update the task list after deletion
