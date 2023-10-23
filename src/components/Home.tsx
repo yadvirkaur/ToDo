@@ -20,16 +20,14 @@ interface UpdatedData {
   task?: string;
 }
 
-const URL = process.env.SERVER_URL || 'http://localhost:8000/';
+const apibaseurl = import.meta.env.VITE_REACT_APP_API_BASE_URL;
 
 const Home = () => {
   // State to manage the list of tasks
   const [todos, setTodos] = useState<Todo[]>([]);
 
-  // State to manage the currently edited task's ID
+  // States to manage the currently edited task's ID & content
   const [editedTaskId, setEditedTaskId] = useState<string | null>(null);
-
-  // State to manage the content of the currently edited task
   const [editedTaskContent, setEditedTaskContent] = useState<
     string | undefined
   >(undefined);
@@ -37,8 +35,7 @@ const Home = () => {
   // Fetch the list of tasks from the server when the component mounts
   useEffect(() => {
     axios
-      // .get('https://mern-todo-app-bdsl.onrender.com/todos')
-      .get(`${URL}todos`)
+      .get(`${apibaseurl}todos`)
       .then((result) => setTodos(result.data))
       .catch((error) => console.log(error));
   }, [todos]); // Re-fetch when the 'todos' state changes
@@ -52,10 +49,7 @@ const Home = () => {
 
         // Send an HTTP PUT request to update the task on the server
         axios
-          .put(
-            `https://mern-todo-app-bdsl.onrender.com/todos/${taskId}`,
-            updatedTodo
-          )
+          .put(`${apibaseurl}todos/${taskId}`, updatedTodo)
           .then((result) => console.log(result))
           .catch((error) => console.log(error));
 
@@ -94,7 +88,7 @@ const Home = () => {
   const handleTaskDelete = (taskId: string) => {
     // Send an HTTP DELETE request to remove the task from the server
     axios
-      .delete(`https://mern-todo-app-bdsl.onrender.com/todos/${taskId}`)
+      .delete(`${apibaseurl}todos/${taskId}`)
       .then((result) => {
         const updatedTodos = todos.filter((todo) => todo._id !== taskId);
         setTodos(updatedTodos); // Update the task list after deletion

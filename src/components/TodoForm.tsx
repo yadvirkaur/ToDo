@@ -2,6 +2,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import { AiOutlinePlus } from 'react-icons/ai';
 
+const apibaseurl = import.meta.env.VITE_REACT_APP_API_BASE_URL;
+
 const TodoForm = () => {
   const [task, setTask] = useState('');
 
@@ -9,7 +11,7 @@ const TodoForm = () => {
     e.preventDefault();
     if (task) {
       axios
-        .post('https://mern-todo-app-bdsl.onrender.com/todos', { task: task })
+        .post(`${apibaseurl}todos`, { task: task })
         .then((result) => {
           console.log(result);
           setTask(''); // Clear the input field on success
