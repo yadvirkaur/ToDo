@@ -20,7 +20,7 @@ interface UpdatedData {
   task?: string;
 }
 
-const apibaseurl = import.meta.env.VITE_REACT_APP_API_BASE_URL;
+const apibaseurl = `https://mern-todo-app-bdsl.onrender.com/`;
 
 const Home = () => {
   // State to manage the list of tasks
