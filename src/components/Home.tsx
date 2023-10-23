@@ -20,7 +20,7 @@ interface UpdatedData {
   task?: string;
 }
 
-const apibaseurl = process.env.API_BASE_URL;
+const apibaseurl = `https://mern-todo-app-bdsl.onrender.com/`;
 
 const Home = () => {
   // State to manage the list of tasks
