@@ -20,6 +20,8 @@ interface UpdatedData {
   task?: string;
 }
 
+const URL = process.env.SERVER_URL || 'http://localhost:8000/';
+
 const Home = () => {
   // State to manage the list of tasks
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -35,7 +37,8 @@ const Home = () => {
   // Fetch the list of tasks from the server when the component mounts
   useEffect(() => {
     axios
-      .get('https://mern-todo-app-bdsl.onrender.com/todos')
+      // .get('https://mern-todo-app-bdsl.onrender.com/todos')
+      .get(`${URL}todos`)
       .then((result) => setTodos(result.data))
       .catch((error) => console.log(error));
   }, [todos]); // Re-fetch when the 'todos' state changes
