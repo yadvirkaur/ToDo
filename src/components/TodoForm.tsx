@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { AiOutlinePlus } from 'react-icons/ai';
 
-const apibaseurl = process.env.VITE_REACT_APP_API_BASE_URL;
+const apibaseurl = process.env.API_BASE_URL;
 
 const TodoForm = () => {
   const [task, setTask] = useState('');

@@ -20,7 +20,7 @@ interface UpdatedData {
   task?: string;
 }
 
-const apibaseurl = process.env.VITE_REACT_APP_API_BASE_URL;
+const apibaseurl = process.env.API_BASE_URL;
 
 const Home = () => {
   // State to manage the list of tasks
